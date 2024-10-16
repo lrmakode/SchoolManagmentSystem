@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class dynamic-insert="false" dynamic-update="false" mutable="true" name="Hibernate.Entity.BUSFEE" optimistic-lock="version" polymorphism="implicit" select-before-update="false">
+    <id name="idBusFee" type="java.lang.Integer">
+      <column name="idBusFee"/>
+      <generator class="identity"/>
+    </id>
+    <property name="BUSNAME" type="string">
+      <column length="50" name="BUSNAME"/>
+    </property>
+    <property name="VILLAGENAME" type="string">
+      <column length="20" name="VILLAGENAME"/>
+    </property>
+    <property name="DRIVERNAME" type="string">
+      <column length="20" name="DRIVERNAME"/>
+    </property>
+    <property name="DRIVERCELL" type="string">
+      <column length="20" name="DRIVERCELL"/>
+    </property>
+    <property name="BUSNUMBER" type="string">
+      <column length="90" name="BUSNUMBER"/>
+    </property>
+    <property name="FARE" type="float">
+      <column length="10" name="FARE"/>
+    </property>
+  </class>
+</hibernate-mapping>

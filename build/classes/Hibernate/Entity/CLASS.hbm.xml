@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="Hibernate.Entity.CLASS" optimistic-lock="version" polymorphism="implicit" select-before-update="false">
+        <id name="idClass" type="java.lang.Integer">
+            <column name="idClass"/>
+            <generator class="identity"/>
+        </id>
+        <property name="nameOfClass" type="string">
+            <column length="50" name="nameOfClass"/>
+        </property>
+        <property name="fromYear" type="timestamp">
+            <column length="5" name="fromYear"/>
+        </property>
+        <property name="toYear" type="timestamp">
+            <column length="5" name="toYear"/>
+        </property>
+        <property name="lateFeePercent" type="float">
+            <column length="20" name="lateFeePercent"/>
+        </property>
+        <property name="penaltyCycle" type="int">
+            <column name="penaltyCycle" not-null="true"/>
+        </property>
+        <property name="lastUpdate" type="timestamp">
+            <column length="19" name="lastUpdate"/>
+        </property>
+        <property name="dueDay" type="int">
+            <column name="dueDay"/>
+        </property>
+        <many-to-one class="Hibernate.Entity.FEEDETAILS" fetch="select" name="feeDetails">
+            <column name="feeDetails"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

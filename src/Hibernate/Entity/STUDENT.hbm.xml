@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="Hibernate.Entity.STUDENT" optimistic-lock="version" polymorphism="implicit" select-before-update="false">
+        <id name="IdStudent" type="java.lang.Integer">
+            <column name="IdStudent"/>
+            <generator class="identity"/>
+        </id>
+        <property name="SSO" type="string">
+            <column length="20" name="SSO"/>
+        </property>
+        <property name="FIRST_NAME" type="string">
+            <column length="20" name="FIRST_NAME"/>
+        </property>
+        <property name="MIDDLE_NAME" type="string">
+            <column length="20" name="MIDDLE_NAME"/>
+        </property>
+        <property name="LAST_NAME" type="string">
+            <column length="20" name="LAST_NAME"/>
+        </property>
+        <property name="CELL_1" type="string">
+            <column length="21" name="CELL_1"/>
+        </property>
+        <property name="CELL_2" type="string">
+            <column length="21" name="CELL_2"/>
+        </property>
+        <property name="AADHAR" type="string">
+            <column length="30" name="AADHAR"/>
+        </property>
+        <property name="FATHERS_NAME" type="string">
+            <column length="20" name="FATHERS_NAME"/>
+        </property>
+        <property name="MOTHERS_NAME" type="string">
+            <column length="20" name="MOTHERS_NAME"/>
+        </property>
+        <many-to-one class="Hibernate.Entity.ADDRESS" fetch="select" name="stdntAddress">
+            <column name="stdntAddress"/>
+        </many-to-one>
+        <many-to-one class="Hibernate.Entity.CLASS" fetch="select" name="idClass">
+            <column name="idClass"/>
+        </many-to-one>
+        <property name="DOB" type="timestamp">
+            <column length="19" name="DOB"/>
+        </property>
+    
+        <!--        <property name="paid" type="java.lang.Float">
+            <column name="paid" precision="12" scale="0" />
+        </property>
+        <property name="balance" type="java.lang.Float">
+            <column name="balance" precision="12" scale="0" />
+        </property>
+        <property name="picture" type="binary">
+            <column name="picture" />
+        </property>-->
+    </class>
+</hibernate-mapping>

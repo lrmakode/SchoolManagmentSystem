@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="Hibernate.Entity.ADDRESS" optimistic-lock="version" polymorphism="implicit" select-before-update="false">
+        <id name="idAddress" type="java.lang.Integer">
+            <column name="idAddress"/>
+            <generator class="identity"/>
+        </id>
+        <property name="address" type="string">
+            <column length="50" name="address"/>
+        </property>
+        <many-to-one class="Hibernate.Entity.BUSFEE" fetch="select" name="idBusFee">
+            <column name="idBusFee"/>
+        </many-to-one>
+        <property name="state" type="string">
+            <column length="20" name="state"/>
+        </property>
+        <property name="country" type="string">
+            <column length="20" name="country"/>
+        </property>
+        <property name="pinCode" type="int">
+            <column name="pin_code" not-null="true"/>
+        </property>
+        <property name="remark" type="string">
+            <column length="90" name="remark"/>
+        </property>
+        <property name="type" type="string">
+            <column length="45" name="type"/>
+        </property>
+        <property name="lastUpdate" type="timestamp">
+            <column length="19" name="last_update"/>
+        </property>
+        <set inverse="true" name="STUDENTS">
+            <key>
+                <column name="ID"/>
+            </key>
+            <one-to-many class="Hibernate.Entity.STUDENT"/>
+        </set>
+        <!--    
+        <set name="vendors" inverse="true">
+            <key>
+                <column name="address_address_id" />
+            </key>
+            <one-to-many class="mhwms.entity.Vendor" />
+        </set>-->
+    </class>
+</hibernate-mapping>

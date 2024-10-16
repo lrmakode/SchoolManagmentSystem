@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="Hibernate.Entity.STDNTBALSHEET" optimistic-lock="version" polymorphism="implicit" select-before-update="false">
+        <id name="IdEntry" type="java.lang.Integer">
+            <column name="IdEntry"/>
+            <generator class="identity"/>
+        </id>
+        <property name="AMT" type="float">
+            <column length="30" name="AMT" not-null="false" default="0"/>
+        </property>
+        <many-to-one class="Hibernate.Entity.STUDENT" fetch="select" name="IDSTDNT">
+            <column name="IdStudent"/>
+        </many-to-one>
+        <many-to-one class="Hibernate.Entity.STUDENTLEDGER" fetch="select" name="IDSTDNTLDGR">
+            <column name="ID"/>
+        </many-to-one>
+
+    </class>
+</hibernate-mapping>

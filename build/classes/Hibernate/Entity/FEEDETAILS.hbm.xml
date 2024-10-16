@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class dynamic-insert="false" dynamic-update="false" mutable="true" name="Hibernate.Entity.FEEDETAILS" optimistic-lock="version" polymorphism="implicit" select-before-update="false">
+    <id name="idFeeDetails" type="java.lang.Integer">
+      <column name="idFeeDetails"/>
+      <generator class="identity"/>
+    </id>
+    <property name="remarK" type="string">
+      <column length="50" name="remarK"/>
+    </property>
+    <property name="totalFee" type="float">
+      <column length="20" name="totalFee"/>
+    </property>
+    <property name="tutionFee" type="float">
+      <column length="20" name="tutionFee"/>
+    </property>
+    <property name="libraryFee" type="float">
+      <column length="20" name="libraryFee"/>
+    </property>
+    <property name="stationaryFee" type="float">
+      <column length="20" name="stationaryFee"/>
+    </property>
+    <property name="dressFee" type="float">
+      <column length="20" name="dressFee"/>
+    </property>
+    <property name="miscFee" type="float">
+      <column length="20" name="miscFee"/>
+    </property>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="Hibernate.Entity.STUDENTLEDGER" optimistic-lock="version" polymorphism="implicit" select-before-update="false">
+
+        <id name="ID" type="java.lang.Integer">
+            <column name="ID"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="Hibernate.Entity.STUDENT" fetch="select" name="STUDENT_ID">
+            <column name="STUDENT_ID"/>
+        </many-to-one>
+        <many-to-one class="Hibernate.Entity.FEEBREAKUP" fetch="select" name="FEES_BREAKUP_ID">
+            <column name="FEES_BREAKUP_ID"/>
+        </many-to-one>            
+        <property name="AMT" type="float">
+            <column length="20" name="AMT"/>
+        </property>
+        <property name="PENALTY" type="float">
+            <column length="20" name="PENALTY"/>
+        </property>
+        <property name="AMT_TO_PAY" type="float">
+            <column length="20" name="AMT_TO_PAY"/>
+        </property>
+        <property name="AMT_TO_PAID" type="float">
+            <column length="20" name="AMT_TO_PAID"/>
+        </property>
+        <property name="DUE_DATE" type="timestamp">
+            <column length="19" name="DUE_DATE"/>
+        </property>
+        <property name="PAID_DATE" type="timestamp">
+            <column length="19" name="PAID_DATE"/>
+        </property>
+       
+        <!--   <many-to-one class="Hibernate.Entity.ADDRESS" fetch="select" name="stdntAddress">
+          <column name="stdntAddress"/>
+        </many-to-one>-->
+
+    </class>
+</hibernate-mapping>
